@@ -3,6 +3,7 @@ package com.vsgajmpa.countrylistview;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,5 +21,12 @@ public class MainActivity extends AppCompatActivity {
                 CountryResources.getCountries());
 
         listCountry.setAdapter(adapter);
+
+        listCountry.setOnItemClickListener((parent, view, position, id) -> {
+            Toast.makeText(this,
+                    CountryResources.getCountries().get(position),
+                    Toast.LENGTH_SHORT)
+                    .show();
+        });
     }
 }
